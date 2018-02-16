@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_participation %>
+	<%= link_to "Cancel", [@event, current_participation], method: :delete %>
+<% else %>	
+	<%= form_for([@event, Participation.new]) do |f| %>
+	  <%= f.submit "Assist" %>
+	<% end %>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @event.title %>
